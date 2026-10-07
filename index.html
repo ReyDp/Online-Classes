@@ -1,214 +1,406 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="An interactive academic infographic about Online Classes: definition, benefits, challenges, and tips for success by Reynaldo José Durán Pertuz.">
+  <meta name="description" content="An interactive academic infographic about Online Classes: definitions, synchronous vs asynchronous models, benefits, challenges, comparison, tips for success, key concepts, and an interactive quiz by Reynaldo José Durán Pertuz.">
   <meta name="author" content="Reynaldo José Durán Pertuz">
-  <meta name="theme-color" content="#0a1128">
+  <meta name="theme-color" content="#070d1e">
 
-  <title>Online Classes | Reynaldo José Durán Pertuz</title>
+  <title>Online Classes | Interactive Academic Infographic | Reynaldo José Durán Pertuz</title>
 
   <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet -->
+  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Reading Progress Bar -->
-  <div class="reading-progress" id="progressBar" role="progressbar" aria-label="Infographic reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+  <!-- Top Reading Progress Indicator -->
+  <div class="reading-progress" id="progressBar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
-  <!-- Decorative Ambient Backdrops -->
-  <div class="ambient-glow glow-1" aria-hidden="true"></div>
-  <div class="ambient-glow glow-2" aria-hidden="true"></div>
-  <div class="ambient-glow glow-3" aria-hidden="true"></div>
+  <!-- Ambient Lighting Effects -->
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+  <div class="ambient-glow glow-middle" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
 
-  <!-- Infographic Poster Container -->
+  <!-- Interactive Section Tracker Navigation -->
+  <nav class="section-tracker" id="sectionTracker" aria-label="Infographic section progression">
+    <div class="tracker-container">
+      <span class="tracker-label">Progress:</span>
+      <ul class="tracker-list">
+        <li><a href="#hero" class="tracker-link active" data-target="hero"><span>01</span> INTRO</a></li>
+        <li><a href="#definition" class="tracker-link" data-target="definition"><span>02</span> DEFINITION</a></li>
+        <li><a href="#modalities" class="tracker-link" data-target="modalities"><span>03</span> FORMATS</a></li>
+        <li><a href="#benefits" class="tracker-link" data-target="benefits"><span>04</span> BENEFITS</a></li>
+        <li><a href="#challenges" class="tracker-link" data-target="challenges"><span>05</span> CHALLENGES</a></li>
+        <li><a href="#comparison" class="tracker-link" data-target="comparison"><span>06</span> COMPARISON</a></li>
+        <li><a href="#tips" class="tracker-link" data-target="tips"><span>07</span> TIPS</a></li>
+        <li><a href="#concepts" class="tracker-link" data-target="concepts"><span>08</span> CONCEPTS</a></li>
+        <li><a href="#trivia" class="tracker-link" data-target="trivia"><span>09</span> TRIVIA</a></li>
+        <li><a href="#quiz" class="tracker-link" data-target="quiz"><span>10</span> QUIZ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Infographic Poster Wrapper -->
   <div class="poster-container">
 
-    <!-- Quick Navigation / Utility Header Bar -->
-    <nav class="poster-quickbar" aria-label="Infographic quick navigation">
-      <div class="quickbar-tag">
-        <span class="pulse-dot" aria-hidden="true"></span>
-        <span>Academic Infographic • English Presentation</span>
+    <!-- Top Utility Quickbar -->
+    <header class="poster-topbar">
+      <div class="topbar-academic-tag">
+        <span class="status-pulse" aria-hidden="true"></span>
+        <span>Academic English Presentation • Interactive Educational Infographic</span>
       </div>
-      <div class="quickbar-actions">
-        <button type="button" class="action-btn" id="printBtn" aria-label="Print or save infographic as PDF">
-          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
+      <div class="topbar-controls">
+        <!-- Theme Toggle Button (Session-Only, No LocalStorage) -->
+        <button type="button" class="ctrl-btn" id="themeToggle" aria-label="Toggle between dark and light mode" title="Switch Theme">
+          <span class="ctrl-icon theme-sun-icon" aria-hidden="true">☀️</span>
+          <span class="ctrl-icon theme-moon-icon" aria-hidden="true">🌙</span>
+          <span class="ctrl-text" id="themeLabel">Light Mode</span>
+        </button>
+
+        <!-- Print / PDF Button -->
+        <button type="button" class="ctrl-btn" id="printBtn" aria-label="Print or save infographic as PDF" title="Print Poster">
+          <svg class="ctrl-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <polyline points="6 9 6 2 18 2 18 9"></polyline>
             <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
             <rect x="6" y="14" width="12" height="8"></rect>
           </svg>
-          <span>Print / PDF</span>
+          <span class="ctrl-text">Print / PDF</span>
         </button>
       </div>
-    </nav>
+    </header>
 
     <!-- ======================================================== -->
-    <!-- HEADER SECTION                                           -->
+    <!-- HERO / HEADER SECTION                                    -->
     <!-- ======================================================== -->
-    <header class="poster-header" id="headerSection">
-      <div class="header-badge">
-        <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <header class="hero-section" id="hero">
+      <div class="hero-context-badge">
+        <svg class="badge-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
           <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
         </svg>
-        <span>Higher Education &amp; Technology Studies</span>
+        <span>Higher Education &amp; Digital Learning Studies</span>
       </div>
 
-      <h1 class="poster-title">
-        <span class="gradient-text">ONLINE CLASSES</span>
+      <h1 class="hero-title">
+        <span class="gradient-headline">ONLINE CLASSES</span>
       </h1>
 
-      <p class="poster-subtitle">Learn anywhere, anytime.</p>
+      <p class="hero-subtitle">Learn anywhere, anytime.</p>
 
-      <!-- Student Attribution Banner -->
-      <div class="author-pill">
-        <div class="avatar-ring" aria-hidden="true">
+      <p class="hero-description">
+        Discover how online learning works, its benefits, its challenges, and how to succeed in a digital learning environment.
+      </p>
+
+      <!-- Handcrafted Educational Vector Illustration -->
+      <div class="hero-illustration-wrapper" aria-hidden="true">
+        <svg class="hero-svg-art" viewBox="0 0 720 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background Orbit Rings -->
+          <ellipse cx="360" cy="140" rx="320" ry="85" stroke="currentColor" stroke-opacity="0.12" stroke-dasharray="8 8" stroke-width="2"/>
+          <ellipse cx="360" cy="140" rx="220" ry="60" stroke="currentColor" stroke-opacity="0.18" stroke-width="1.5"/>
+
+          <!-- Central Digital Hub Laptop Base -->
+          <g transform="translate(240, 60)">
+            <!-- Laptop Screen Outer -->
+            <rect x="30" y="10" width="180" height="115" rx="10" fill="var(--card-bg)" stroke="var(--accent-cyan)" stroke-width="2.5"/>
+            <!-- Screen Display Area -->
+            <rect x="42" y="22" width="156" height="90" rx="6" fill="#0d1b3e"/>
+            <!-- Code / Video / Learning Window UI -->
+            <rect x="52" y="32" width="60" height="40" rx="4" fill="#1e293b"/>
+            <circle cx="82" cy="52" r="12" fill="var(--accent-cyan)" fill-opacity="0.8"/>
+            <polygon points="80,47 88,52 80,57" fill="#ffffff"/>
+            <!-- Text Lines on Screen -->
+            <rect x="122" y="36" width="64" height="6" rx="3" fill="#38bdf8"/>
+            <rect x="122" y="48" width="50" height="5" rx="2.5" fill="#94a3b8"/>
+            <rect x="122" y="59" width="58" height="5" rx="2.5" fill="#64748b"/>
+            <rect x="52" y="80" width="134" height="20" rx="4" fill="#172554"/>
+            <!-- Laptop Base & Keyboard Platform -->
+            <path d="M10 125 L230 125 L215 140 L25 140 Z" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="2"/>
+            <rect x="100" y="127" width="40" height="5" rx="2" fill="var(--accent-cyan)"/>
+          </g>
+
+          <!-- Floating Educational Orbital Nodes -->
+          <!-- Left: Global Connectivity Globe -->
+          <g transform="translate(100, 75)" class="floating-node-1">
+            <circle cx="45" cy="45" r="38" fill="var(--card-bg)" stroke="var(--accent-cyan)" stroke-width="2"/>
+            <circle cx="45" cy="45" r="28" stroke="#38bdf8" stroke-width="1.8"/>
+            <path d="M17 45h56M45 17a38 38 0 0 1 0 56M45 17a38 38 0 0 0 0 56" stroke="#38bdf8" stroke-width="1.5"/>
+            <text x="45" y="105" text-anchor="middle" fill="var(--text-muted)" font-size="12" font-weight="600">Global Reach</text>
+          </g>
+
+          <!-- Right: Academic Graduation / Growth Cap -->
+          <g transform="translate(530, 75)" class="floating-node-2">
+            <circle cx="45" cy="45" r="38" fill="var(--card-bg)" stroke="#818cf8" stroke-width="2"/>
+            <path d="M22 42l23-11 23 11-23 11-23-11z" fill="#818cf8" fill-opacity="0.3" stroke="#818cf8" stroke-width="2"/>
+            <path d="M28 47v15c0 7 17 7 17 0V47" stroke="#818cf8" stroke-width="2"/>
+            <path d="M62 45v18" stroke="#38bdf8" stroke-width="2"/>
+            <circle cx="62" cy="65" r="3" fill="#38bdf8"/>
+            <text x="45" y="105" text-anchor="middle" fill="var(--text-muted)" font-size="12" font-weight="600">Lifelong Skills</text>
+          </g>
+
+          <!-- Center Sparks / Connectivity Pulses -->
+          <circle cx="215" cy="115" r="5" fill="#38bdf8" class="pulse-node"/>
+          <circle cx="505" cy="115" r="5" fill="#818cf8" class="pulse-node"/>
+        </svg>
+      </div>
+
+      <!-- Student Author Identity Pill -->
+      <div class="author-banner">
+        <div class="author-avatar" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
         </div>
-        <div class="author-details">
-          <span class="author-label">Student Researcher</span>
+        <div class="author-info">
+          <span class="author-role">Student Presenter &amp; Researcher</span>
           <span class="author-name">REYNALDO JOSÉ DURÁN PERTUZ</span>
         </div>
       </div>
 
-      <!-- Quick Summary Matrix Pill Row -->
-      <div class="metrics-ribbon" role="region" aria-label="Key highlights summary">
-        <div class="metric-item">
-          <span class="metric-number">01</span>
-          <span class="metric-caption">Clear Definition</span>
-        </div>
-        <div class="metric-divider" aria-hidden="true"></div>
-        <div class="metric-item">
-          <span class="metric-number">03</span>
-          <span class="metric-caption">Key Benefits</span>
-        </div>
-        <div class="metric-divider" aria-hidden="true"></div>
-        <div class="metric-item">
-          <span class="metric-number">03</span>
-          <span class="metric-caption">Real Challenges</span>
-        </div>
-        <div class="metric-divider" aria-hidden="true"></div>
-        <div class="metric-item">
-          <span class="metric-number">03</span>
-          <span class="metric-caption">Tips for Success</span>
-        </div>
-      </div>
+      <!-- Scroll Invitation Indicator -->
+      <a href="#definition" class="scroll-explore-link" aria-label="Scroll down to explore definition">
+        <span>Scroll to explore</span>
+        <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+      </a>
     </header>
 
-    <!-- Poster Flow Line Connector -->
-    <div class="timeline-connector" aria-hidden="true">
-      <div class="connector-line"></div>
+    <!-- Visual Poster Connector Line -->
+    <div class="timeline-bridge" aria-hidden="true">
+      <div class="bridge-line"></div>
     </div>
 
-    <!-- MAIN CONTENT OF THE INFOGRAPHIC -->
+    <!-- MAIN INFOGRAPHIC BODY -->
     <main id="mainContent">
 
       <!-- ======================================================== -->
-      <!-- DEFINITION SECTION: WHAT ARE ONLINE CLASSES?             -->
+      <!-- SECTION 1 — WHAT ARE ONLINE CLASSES?                     -->
       <!-- ======================================================== -->
-      <section class="info-section definition-section" id="definition" aria-labelledby="defHeading">
-        <div class="section-indicator">
-          <span class="section-number">SECTION 01</span>
-          <span class="section-tag">Core Concept</span>
+      <section class="infographic-block" id="definition" aria-labelledby="heading-definition">
+        <div class="block-flag">
+          <span class="flag-number">SECTION 01</span>
+          <span class="flag-text">Fundamental Definition</span>
         </div>
 
-        <h2 class="section-title" id="defHeading">
-          What Are Online Classes?
-        </h2>
+        <h2 class="block-title" id="heading-definition">WHAT ARE ONLINE CLASSES?</h2>
 
-        <!-- Definition Card with Dual SVG Visuals -->
-        <div class="definition-card">
-          <div class="definition-visuals" aria-hidden="true">
-            <div class="visual-badge visual-laptop">
-              <!-- Laptop / Digital Device Icon -->
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="12" rx="2"></rect>
-                <line x1="2" y1="20" x2="22" y2="20"></line>
+        <div class="definition-showcase">
+          <!-- Dual Visual Icons Representation -->
+          <div class="definition-icons-row" aria-hidden="true">
+            <div class="def-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
               </svg>
               <span>Digital Platform</span>
             </div>
-            <div class="visual-connector-icon">
+
+            <div class="def-connector">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <div class="visual-badge visual-network">
-              <!-- Global Network / Internet Icon -->
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+
+            <div class="def-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
                 <line x1="2" y1="12" x2="22" y2="12"></line>
                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
               </svg>
-              <span>Global Connectivity</span>
+              <span>Internet Connectivity</span>
             </div>
           </div>
 
-          <div class="definition-content">
-            <p class="definition-text">
-              "Online classes are educational courses delivered through the Internet. They allow students to access learning materials, interact with teachers and classmates, and complete learning activities using digital technologies."
-            </p>
+          <!-- Mandatory Core Text (Always Fully Visible) -->
+          <blockquote class="definition-primary-quote">
+            "Online classes are educational courses delivered through the Internet. They allow students to access learning materials, interact with teachers and classmates, and complete learning activities using digital technologies."
+          </blockquote>
+
+          <!-- Interactive Action Button for Additional Context -->
+          <div class="definition-action-wrapper">
+            <button type="button" class="interactive-btn" id="exploreConceptBtn" aria-expanded="false" aria-controls="conceptExpandedPanel">
+              <svg class="btn-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+              <span>Explore the concept</span>
+            </button>
           </div>
 
-          <!-- Feature Badges -->
-          <div class="definition-tags" aria-label="Key aspects of online learning">
-            <span class="tag-pill">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tag-icon" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-              Courseware Access
-            </span>
-            <span class="tag-pill">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tag-icon" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-              Collaborative Interaction
-            </span>
-            <span class="tag-pill">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tag-icon" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              Digital Technology
-            </span>
+          <!-- Interactive Expanding Detail Panel -->
+          <div class="concept-expanded-panel" id="conceptExpandedPanel" hidden>
+            <div class="expanded-panel-header">
+              <div class="panel-tag">
+                <span class="tag-sparkle" aria-hidden="true">✦</span>
+                <span>Expanded Academic Context</span>
+              </div>
+              <button type="button" class="panel-close-btn" id="closeConceptBtn" aria-label="Close expanded concept panel">✕</button>
+            </div>
+            <p class="expanded-panel-text">
+              "Online learning can take place through learning management systems, video conferences, recorded lessons, digital documents, discussion forums and other online tools."
+            </p>
+            <div class="expanded-pill-cloud" aria-label="Online learning modalities">
+              <span class="pill-chip">Learning Management Systems (LMS)</span>
+              <span class="pill-chip">Live Video Conferences</span>
+              <span class="pill-chip">Asynchronous Discussion Forums</span>
+              <span class="pill-chip">Cloud Digital Documents</span>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- Section Divider -->
-      <div class="section-divider-graphic" aria-hidden="true">
-        <span class="divider-node"></span>
-      </div>
+      <div class="timeline-bridge" aria-hidden="true"><div class="bridge-line"></div></div>
 
       <!-- ======================================================== -->
-      <!-- BENEFITS SECTION (EXACTLY 3 BENEFITS)                    -->
+      <!-- SECTION 2 — SYNCHRONOUS VS ASYNCHRONOUS LEARNING         -->
       <!-- ======================================================== -->
-      <section class="info-section benefits-section" id="benefits" aria-labelledby="benefitsHeading">
-        <div class="section-indicator">
-          <span class="section-number">SECTION 02</span>
-          <span class="section-tag accent-teal">Major Advantages</span>
+      <section class="infographic-block" id="modalities" aria-labelledby="heading-modalities">
+        <div class="block-flag">
+          <span class="flag-number">SECTION 02</span>
+          <span class="flag-text">Educational Delivery Models</span>
         </div>
 
-        <h2 class="section-title" id="benefitsHeading">
-          Benefits of Online Classes
-        </h2>
-        <p class="section-lead">
-          Three primary educational advantages empowering modern students across digital learning ecosystems:
+        <h2 class="block-title" id="heading-modalities">SYNCHRONOUS vs ASYNCHRONOUS</h2>
+        <p class="block-subtitle">
+          Online education is delivered through two foundational temporal models. Explore each modality below:
         </p>
 
-        <!-- 3 Benefits Grid Cards -->
+        <!-- Interactive Comparison Switcher Control -->
+        <div class="mode-switcher-bar" role="tablist" aria-label="Modality focus toggle">
+          <button type="button" class="mode-tab-btn active" role="tab" id="tab-all" aria-selected="true" aria-controls="modalitiesGrid" data-view="both">
+            <span>Compare Both Modes</span>
+          </button>
+          <button type="button" class="mode-tab-btn" role="tab" id="tab-sync" aria-selected="false" aria-controls="card-sync" data-view="sync">
+            <span>⚡ Synchronous Only</span>
+          </button>
+          <button type="button" class="mode-tab-btn" role="tab" id="tab-async" aria-selected="false" aria-controls="card-async" data-view="async">
+            <span>🔄 Asynchronous Only</span>
+          </button>
+        </div>
+
+        <!-- Facing Modality Cards Grid -->
+        <div class="modalities-grid" id="modalitiesGrid">
+
+          <!-- Synchronous Card -->
+          <article class="modality-card sync-mode-card active-mode" id="card-sync" tabindex="0">
+            <div class="modality-header">
+              <div class="modality-badge sync-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="modality-svg" aria-hidden="true">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                <span>REAL-TIME</span>
+              </div>
+              <span class="modality-counter">Mode A</span>
+            </div>
+
+            <h3 class="modality-title">SYNCHRONOUS LEARNING</h3>
+
+            <p class="modality-definition">
+              "Learning that takes place in real time."
+            </p>
+
+            <div class="modality-section-group">
+              <h4 class="group-heading">Key Characteristics:</h4>
+              <ul class="modality-list">
+                <li><span class="bullet-check">✓</span> Real-time interaction</li>
+                <li><span class="bullet-check">✓</span> Fixed schedules</li>
+                <li><span class="bullet-check">✓</span> Immediate communication</li>
+              </ul>
+            </div>
+
+            <div class="modality-section-group">
+              <h4 class="group-heading">Practical Examples:</h4>
+              <div class="modality-tags">
+                <span class="example-tag">Live video classes</span>
+                <span class="example-tag">Real-time discussions</span>
+                <span class="example-tag">Virtual meetings</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Asynchronous Card -->
+          <article class="modality-card async-mode-card active-mode" id="card-async" tabindex="0">
+            <div class="modality-header">
+              <div class="modality-badge async-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="modality-svg" aria-hidden="true">
+                  <polyline points="23 4 23 10 17 10"></polyline>
+                  <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                </svg>
+                <span>SELF-SCHEDULED</span>
+              </div>
+              <span class="modality-counter">Mode B</span>
+            </div>
+
+            <h3 class="modality-title">ASYNCHRONOUS LEARNING</h3>
+
+            <p class="modality-definition">
+              "Learning that does not require everyone to participate at the same time."
+            </p>
+
+            <div class="modality-section-group">
+              <h4 class="group-heading">Key Characteristics:</h4>
+              <ul class="modality-list">
+                <li><span class="bullet-check">✓</span> Flexible schedules</li>
+                <li><span class="bullet-check">✓</span> Self-paced learning</li>
+                <li><span class="bullet-check">✓</span> Time to review materials</li>
+              </ul>
+            </div>
+
+            <div class="modality-section-group">
+              <h4 class="group-heading">Practical Examples:</h4>
+              <div class="modality-tags">
+                <span class="example-tag">Recorded classes</span>
+                <span class="example-tag">Online assignments</span>
+                <span class="example-tag">Discussion forums</span>
+                <span class="example-tag">Digital resources</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Section Divider -->
+      <div class="timeline-bridge" aria-hidden="true"><div class="bridge-line"></div></div>
+
+      <!-- ======================================================== -->
+      <!-- SECTION 3 — BENEFITS OF ONLINE CLASSES                   -->
+      <!-- ======================================================== -->
+      <section class="infographic-block" id="benefits" aria-labelledby="heading-benefits">
+        <div class="block-flag">
+          <span class="flag-number">SECTION 03</span>
+          <span class="flag-text accent-emerald">Core Advantages</span>
+        </div>
+
+        <h2 class="block-title" id="heading-benefits">BENEFITS OF ONLINE CLASSES</h2>
+        <p class="block-subtitle">
+          Three fundamental advantages of virtual classrooms. Hover on desktop or tap on mobile to reveal additional academic insight:
+        </p>
+
+        <!-- 3 Primary Benefits Grid -->
         <div class="cards-grid benefits-grid">
 
           <!-- Benefit 1: Flexibility -->
-          <article class="infographic-card benefit-card" data-card="benefit-1">
-            <div class="card-header-row">
-              <div class="card-numeric-badge">
-                <span class="num-prefix">#</span>
-                <span class="num-value">01</span>
-              </div>
-              <div class="card-icon-wrapper benefit-icon" aria-hidden="true">
-                <!-- Clock / Flexibility SVG -->
+          <article class="infographic-card benefit-card tooltip-trigger-card" tabindex="0"
+                   data-tooltip="Flexibility allows learners to organize study time around other responsibilities."
+                   aria-describedby="tip-benefit-1">
+            <div class="card-meta-row">
+              <span class="card-number-tag">01</span>
+              <div class="card-icon-bubble emerald-icon" aria-hidden="true">
+                <!-- Clock / Calendar SVG -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="10"></circle>
                   <polyline points="12 6 12 12 16 14"></polyline>
@@ -216,73 +408,70 @@
               </div>
             </div>
 
-            <h3 class="card-title">FLEXIBILITY</h3>
+            <h3 class="card-headline">FLEXIBILITY</h3>
 
-            <p class="card-text">
+            <p class="card-body-text">
               "Students can learn according to their schedules and access educational resources from different locations."
             </p>
 
-            <div class="card-footer-pill">
-              <span class="pill-dot"></span>
-              <span>Self-determined scheduling</span>
+            <div class="card-interactive-hint">
+              <span class="hint-sparkle" aria-hidden="true">ⓘ</span>
+              <span class="hint-text">Hover or tap for insight</span>
             </div>
           </article>
 
           <!-- Benefit 2: Accessibility -->
-          <article class="infographic-card benefit-card" data-card="benefit-2">
-            <div class="card-header-row">
-              <div class="card-numeric-badge">
-                <span class="num-prefix">#</span>
-                <span class="num-value">02</span>
-              </div>
-              <div class="card-icon-wrapper benefit-icon" aria-hidden="true">
-                <!-- World / Accessibility SVG -->
+          <article class="infographic-card benefit-card tooltip-trigger-card" tabindex="0"
+                   data-tooltip="Digital learning can provide access to educational resources from different locations."
+                   aria-describedby="tip-benefit-2">
+            <div class="card-meta-row">
+              <span class="card-number-tag">02</span>
+              <div class="card-icon-bubble emerald-icon" aria-hidden="true">
+                <!-- Globe / Laptop SVG -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="10"></circle>
-                  <path d="M2 12h20"></path>
-                  <path d="M12 2a15 15 0 0 1 0 20"></path>
-                  <path d="M12 2a15 15 0 0 0 0 20"></path>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
                 </svg>
               </div>
             </div>
 
-            <h3 class="card-title">ACCESSIBILITY</h3>
+            <h3 class="card-headline">ACCESSIBILITY</h3>
 
-            <p class="card-text">
+            <p class="card-body-text">
               "Students can access courses and learning materials through the Internet without always being physically present on campus."
             </p>
 
-            <div class="card-footer-pill">
-              <span class="pill-dot"></span>
-              <span>Border-free learning</span>
+            <div class="card-interactive-hint">
+              <span class="hint-sparkle" aria-hidden="true">ⓘ</span>
+              <span class="hint-text">Hover or tap for insight</span>
             </div>
           </article>
 
           <!-- Benefit 3: Self-Paced Learning -->
-          <article class="infographic-card benefit-card" data-card="benefit-3">
-            <div class="card-header-row">
-              <div class="card-numeric-badge">
-                <span class="num-prefix">#</span>
-                <span class="num-value">03</span>
-              </div>
-              <div class="card-icon-wrapper benefit-icon" aria-hidden="true">
-                <!-- Book / Self-Paced Learning SVG -->
+          <article class="infographic-card benefit-card tooltip-trigger-card" tabindex="0"
+                   data-tooltip="Students can review materials and manage part of their learning process according to their needs."
+                   aria-describedby="tip-benefit-3">
+            <div class="card-meta-row">
+              <span class="card-number-tag">03</span>
+              <div class="card-icon-bubble emerald-icon" aria-hidden="true">
+                <!-- Book / Progress SVG -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                 </svg>
               </div>
             </div>
 
-            <h3 class="card-title">SELF-PACED LEARNING</h3>
+            <h3 class="card-headline">SELF-PACED LEARNING</h3>
 
-            <p class="card-text">
+            <p class="card-body-text">
               "Students can review materials and organize part of their learning at their own pace."
             </p>
 
-            <div class="card-footer-pill">
-              <span class="pill-dot"></span>
-              <span>Autonomous pacing</span>
+            <div class="card-interactive-hint">
+              <span class="hint-sparkle" aria-hidden="true">ⓘ</span>
+              <span class="hint-text">Hover or tap for insight</span>
             </div>
           </article>
 
@@ -290,35 +479,33 @@
       </section>
 
       <!-- Section Divider -->
-      <div class="section-divider-graphic" aria-hidden="true">
-        <span class="divider-node"></span>
-      </div>
+      <div class="timeline-bridge" aria-hidden="true"><div class="bridge-line"></div></div>
 
       <!-- ======================================================== -->
-      <!-- CHALLENGES SECTION (EXACTLY 3 CHALLENGES)                -->
+      <!-- SECTION 4 — CHALLENGES OF ONLINE LEARNING                -->
       <!-- ======================================================== -->
-      <section class="info-section challenges-section" id="challenges" aria-labelledby="challengesHeading">
-        <div class="section-indicator">
-          <span class="section-number">SECTION 03</span>
-          <span class="section-tag accent-amber">Realistic Obstacles</span>
+      <section class="infographic-block" id="challenges" aria-labelledby="heading-challenges">
+        <div class="block-flag">
+          <span class="flag-number">SECTION 04</span>
+          <span class="flag-text accent-amber">Realistic Obstacles</span>
         </div>
 
-        <h2 class="section-title" id="challengesHeading">
-          Challenges in Online Learning
-        </h2>
-        <p class="section-lead">
-          Three critical obstacles students must acknowledge and navigate in virtual classrooms:
+        <h2 class="block-title" id="heading-challenges">CHALLENGES OF ONLINE LEARNING</h2>
+        <p class="block-subtitle">
+          Three critical obstacles students navigate in virtual education. Hover or tap each card to discover key mitigations:
         </p>
 
-        <!-- 3 Challenges Grid Cards -->
+        <!-- 3 Primary Challenges Grid -->
         <div class="cards-grid challenges-grid">
 
           <!-- Challenge 1: Technical Problems -->
-          <article class="infographic-card challenge-card" data-card="challenge-1">
-            <div class="card-header-row">
-              <div class="card-category-flag">Obstacle 01</div>
-              <div class="card-icon-wrapper challenge-icon" aria-hidden="true">
-                <!-- WiFi / Signal / Technical Issue SVG -->
+          <article class="infographic-card challenge-card tooltip-trigger-card" tabindex="0"
+                   data-tooltip="Reliable devices, software and Internet access are important for a smooth learning experience."
+                   aria-describedby="tip-challenge-1">
+            <div class="card-meta-row">
+              <span class="card-number-tag amber-tag">01</span>
+              <div class="card-icon-bubble amber-icon" aria-hidden="true">
+                <!-- WiFi / Signal Disruption SVG -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
                   <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
@@ -328,28 +515,26 @@
               </div>
             </div>
 
-            <h3 class="card-title">TECHNICAL PROBLEMS</h3>
+            <h3 class="card-headline">TECHNICAL PROBLEMS</h3>
 
-            <p class="card-text">
+            <p class="card-body-text">
               "Internet connection problems and technical difficulties can interrupt learning activities."
             </p>
 
-            <div class="challenge-alert-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="alert-icon" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12" y2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-              </svg>
-              <span>Connectivity &amp; hardware disruption</span>
+            <div class="card-interactive-hint amber-hint">
+              <span class="hint-sparkle" aria-hidden="true">⚠️</span>
+              <span class="hint-text">Hover or tap for insight</span>
             </div>
           </article>
 
           <!-- Challenge 2: Time Management -->
-          <article class="infographic-card challenge-card" data-card="challenge-2">
-            <div class="card-header-row">
-              <div class="card-category-flag">Obstacle 02</div>
-              <div class="card-icon-wrapper challenge-icon" aria-hidden="true">
-                <!-- Alarm Clock / Time Management SVG -->
+          <article class="infographic-card challenge-card tooltip-trigger-card" tabindex="0"
+                   data-tooltip="Flexibility requires responsibility and good organization."
+                   aria-describedby="tip-challenge-2">
+            <div class="card-meta-row">
+              <span class="card-number-tag amber-tag">02</span>
+              <div class="card-icon-bubble amber-icon" aria-hidden="true">
+                <!-- Alarm Clock / Self-Discipline SVG -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="13" r="8"></circle>
                   <path d="M12 9v4l2 2"></path>
@@ -361,28 +546,26 @@
               </div>
             </div>
 
-            <h3 class="card-title">TIME MANAGEMENT</h3>
+            <h3 class="card-headline">TIME MANAGEMENT</h3>
 
-            <p class="card-text">
+            <p class="card-body-text">
               "Students need self-discipline to organize their schedules, complete assignments, and meet deadlines."
             </p>
 
-            <div class="challenge-alert-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="alert-icon" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12" y2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-              </svg>
-              <span>Requires strict self-discipline</span>
+            <div class="card-interactive-hint amber-hint">
+              <span class="hint-sparkle" aria-hidden="true">⚠️</span>
+              <span class="hint-text">Hover or tap for insight</span>
             </div>
           </article>
 
           <!-- Challenge 3: Limited Social Interaction -->
-          <article class="infographic-card challenge-card" data-card="challenge-3">
-            <div class="card-header-row">
-              <div class="card-category-flag">Obstacle 03</div>
-              <div class="card-icon-wrapper challenge-icon" aria-hidden="true">
-                <!-- Users / Social Isolation SVG -->
+          <article class="infographic-card challenge-card tooltip-trigger-card" tabindex="0"
+                   data-tooltip="Active communication with classmates and teachers can help maintain social connection."
+                   aria-describedby="tip-challenge-3">
+            <div class="card-meta-row">
+              <span class="card-number-tag amber-tag">03</span>
+              <div class="card-icon-bubble amber-icon" aria-hidden="true">
+                <!-- Social Group / Isolation SVG -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                   <circle cx="9" cy="7" r="4"></circle>
@@ -392,19 +575,15 @@
               </div>
             </div>
 
-            <h3 class="card-title">LIMITED SOCIAL INTERACTION</h3>
+            <h3 class="card-headline">LIMITED SOCIAL INTERACTION</h3>
 
-            <p class="card-text">
+            <p class="card-body-text">
               "Some students may experience less face-to-face interaction and feelings of isolation."
             </p>
 
-            <div class="challenge-alert-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="alert-icon" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12" y2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-              </svg>
-              <span>Reduced peer and campus bonding</span>
+            <div class="card-interactive-hint amber-hint">
+              <span class="hint-sparkle" aria-hidden="true">⚠️</span>
+              <span class="hint-text">Hover or tap for insight</span>
             </div>
           </article>
 
@@ -412,109 +591,172 @@
       </section>
 
       <!-- Section Divider -->
-      <div class="section-divider-graphic" aria-hidden="true">
-        <span class="divider-node"></span>
-      </div>
+      <div class="timeline-bridge" aria-hidden="true"><div class="bridge-line"></div></div>
 
       <!-- ======================================================== -->
-      <!-- TIPS SECTION (EXACTLY 3 TIPS FOR SUCCESS)                 -->
+      <!-- SECTION 5 — ONLINE VS TRADITIONAL CLASSES                -->
       <!-- ======================================================== -->
-      <section class="info-section tips-section" id="tips" aria-labelledby="tipsHeading">
-        <div class="section-indicator">
-          <span class="section-number">SECTION 04</span>
-          <span class="section-tag accent-cyan">Practical Solutions</span>
+      <section class="infographic-block" id="comparison" aria-labelledby="heading-comparison">
+        <div class="block-flag">
+          <span class="flag-number">SECTION 05</span>
+          <span class="flag-text">Comparative Analysis</span>
         </div>
 
-        <h2 class="section-title" id="tipsHeading">
-          Tips for Success
-        </h2>
-        <p class="section-lead">
-          Three evidence-grounded action strategies for optimal academic performance online:
+        <h2 class="block-title" id="heading-comparison">ONLINE vs TRADITIONAL CLASSES</h2>
+        <p class="block-subtitle">
+          An objective structural contrast between virtual and on-campus educational delivery environments:
         </p>
 
-        <!-- 3 Tips Horizontal Flow / Structured Cards -->
+        <!-- Side-by-Side Comparison Matrix -->
+        <div class="comparison-matrix">
+          <!-- Online Column -->
+          <div class="compare-column online-col">
+            <div class="compare-col-header">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="compare-icon" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              <h3>ONLINE CLASSES</h3>
+            </div>
+            <ul class="compare-list">
+              <li><span class="col-dot cyan-dot" aria-hidden="true"></span> Flexible schedules</li>
+              <li><span class="col-dot cyan-dot" aria-hidden="true"></span> Remote access</li>
+              <li><span class="col-dot cyan-dot" aria-hidden="true"></span> Digital resources</li>
+              <li><span class="col-dot cyan-dot" aria-hidden="true"></span> Self-paced activities</li>
+              <li><span class="col-dot cyan-dot" aria-hidden="true"></span> Online communication</li>
+            </ul>
+          </div>
+
+          <!-- Traditional Column -->
+          <div class="compare-column traditional-col">
+            <div class="compare-col-header">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="compare-icon" aria-hidden="true">
+                <path d="M3 21h18M3 7l9-4 9 4M4 7v14M20 7v14M9 21v-6a3 3 0 0 1 6 0v6"></path>
+              </svg>
+              <h3>TRADITIONAL CLASSES</h3>
+            </div>
+            <ul class="compare-list">
+              <li><span class="col-dot purple-dot" aria-hidden="true"></span> Physical classroom</li>
+              <li><span class="col-dot purple-dot" aria-hidden="true"></span> Face-to-face interaction</li>
+              <li><span class="col-dot purple-dot" aria-hidden="true"></span> Fixed location</li>
+              <li><span class="col-dot purple-dot" aria-hidden="true"></span> Direct classroom environment</li>
+              <li><span class="col-dot purple-dot" aria-hidden="true"></span> Scheduled attendance</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Balanced Academic Insight Note -->
+        <div class="balanced-note-box" role="note">
+          <div class="note-icon" aria-hidden="true">⚖️</div>
+          <p class="note-content">
+            <strong>Academic Note:</strong> "Both learning environments can be effective depending on students' needs, course design and learning conditions."
+          </p>
+        </div>
+      </section>
+
+      <!-- Section Divider -->
+      <div class="timeline-bridge" aria-hidden="true"><div class="bridge-line"></div></div>
+
+      <!-- ======================================================== -->
+      <!-- SECTION 6 — 3 TIPS FOR SUCCESS                           -->
+      <!-- ======================================================== -->
+      <section class="infographic-block" id="tips" aria-labelledby="heading-tips">
+        <div class="block-flag">
+          <span class="flag-number">SECTION 06</span>
+          <span class="flag-text accent-cyan">Actionable Strategies</span>
+        </div>
+
+        <h2 class="block-title" id="heading-tips">3 TIPS FOR SUCCESS</h2>
+        <p class="block-subtitle">
+          Three proven behavioral practices for maximizing academic performance in online courses:
+        </p>
+
+        <!-- 3 Primary Tips Grid -->
         <div class="cards-grid tips-grid">
 
-          <!-- Tip 1: Create a Study Schedule -->
-          <article class="infographic-card tip-card" data-card="tip-1">
-            <div class="tip-step-marker">
-              <span class="step-badge">STRATEGY 01</span>
-            </div>
-            <div class="card-icon-wrapper tip-icon" aria-hidden="true">
-              <!-- Calendar / Study Schedule SVG -->
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-                <path d="m9 16 2 2 4-4"></path>
-              </svg>
+          <!-- Tip 1: Study Schedule -->
+          <article class="infographic-card tip-card tooltip-trigger-card" tabindex="0"
+                   data-tooltip="Consistent study routines help maintain momentum, organize priorities, and reduce procrastination."
+                   aria-describedby="tip-tip-1">
+            <div class="tip-step-header">
+              <span class="large-step-num">01</span>
+              <div class="card-icon-bubble cyan-icon" aria-hidden="true">
+                <!-- Calendar / Planning SVG -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
             </div>
 
-            <h3 class="card-title">CREATE A STUDY SCHEDULE</h3>
+            <h3 class="card-headline">CREATE A STUDY SCHEDULE</h3>
 
-            <p class="card-text">
+            <p class="card-body-text">
               "Set specific study times and organize your assignments before their deadlines."
             </p>
 
-            <div class="tip-action-callout">
-              <span class="callout-label">Action:</span>
-              <span class="callout-value">Time-blocking &amp; early task tracking</span>
+            <div class="card-interactive-hint cyan-hint">
+              <span class="hint-sparkle" aria-hidden="true">✦</span>
+              <span class="hint-text">Hover or tap for strategy</span>
             </div>
           </article>
 
-          <!-- Tip 2: Stay Active and Participate -->
-          <article class="infographic-card tip-card" data-card="tip-2">
-            <div class="tip-step-marker">
-              <span class="step-badge">STRATEGY 02</span>
-            </div>
-            <div class="card-icon-wrapper tip-icon" aria-hidden="true">
-              <!-- Chat / Dialogue / Active Participation SVG -->
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                <line x1="8" y1="10" x2="8.01" y2="10"></line>
-                <line x1="12" y1="10" x2="12.01" y2="10"></line>
-                <line x1="16" y1="10" x2="16.01" y2="10"></line>
-              </svg>
+          <!-- Tip 2: Stay Active & Participate -->
+          <article class="infographic-card tip-card tooltip-trigger-card" tabindex="0"
+                   data-tooltip="Regular engagement fosters deeper comprehension and builds supportive peer collaborative networks."
+                   aria-describedby="tip-tip-2">
+            <div class="tip-step-header">
+              <span class="large-step-num">02</span>
+              <div class="card-icon-bubble cyan-icon" aria-hidden="true">
+                <!-- Chat / Active Discussion SVG -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
             </div>
 
-            <h3 class="card-title">STAY ACTIVE AND PARTICIPATE</h3>
+            <h3 class="card-headline">STAY ACTIVE AND PARTICIPATE</h3>
 
-            <p class="card-text">
+            <p class="card-body-text">
               "Ask questions, participate in discussions, and communicate with your teachers and classmates."
             </p>
 
-            <div class="tip-action-callout">
-              <span class="callout-label">Action:</span>
-              <span class="callout-value">Proactive forum &amp; session engagement</span>
+            <div class="card-interactive-hint cyan-hint">
+              <span class="hint-sparkle" aria-hidden="true">✦</span>
+              <span class="hint-text">Hover or tap for strategy</span>
             </div>
           </article>
 
           <!-- Tip 3: Avoid Distractions -->
-          <article class="infographic-card tip-card" data-card="tip-3">
-            <div class="tip-step-marker">
-              <span class="step-badge">STRATEGY 03</span>
-            </div>
-            <div class="card-icon-wrapper tip-icon" aria-hidden="true">
-              <!-- Bell-Off / Focused Attention SVG -->
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                <path d="M18.63 13A17.89 17.89 0 0 1 18 8"></path>
-                <path d="M6.26 6.26A5.86 5.86 0 0 0 6 8c0 7-3 9-3 9h14"></path>
-                <path d="M18 8a6 6 0 0 0-9.33-5"></path>
-                <line x1="1" y1="1" x2="23" y2="23"></line>
-              </svg>
+          <article class="infographic-card tip-card tooltip-trigger-card" tabindex="0"
+                   data-tooltip="Silencing device notifications and establishing a dedicated study zone improves cognitive focus."
+                   aria-describedby="tip-tip-3">
+            <div class="tip-step-header">
+              <span class="large-step-num">03</span>
+              <div class="card-icon-bubble cyan-icon" aria-hidden="true">
+                <!-- Silent Bell / Focus SVG -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                  <path d="M18.63 13A17.89 17.89 0 0 1 18 8"></path>
+                  <path d="M6.26 6.26A5.86 5.86 0 0 0 6 8c0 7-3 9-3 9h14"></path>
+                  <path d="M18 8a6 6 0 0 0-9.33-5"></path>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+              </div>
             </div>
 
-            <h3 class="card-title">AVOID DISTRACTIONS</h3>
+            <h3 class="card-headline">AVOID DISTRACTIONS</h3>
 
-            <p class="card-text">
+            <p class="card-body-text">
               "Choose a quiet place to study and minimize distractions while attending your classes."
             </p>
 
-            <div class="tip-action-callout">
-              <span class="callout-label">Action:</span>
-              <span class="callout-value">Designated quiet zone &amp; notification muting</span>
+            <div class="card-interactive-hint cyan-hint">
+              <span class="hint-sparkle" aria-hidden="true">✦</span>
+              <span class="hint-text">Hover or tap for strategy</span>
             </div>
           </article>
 
@@ -522,45 +764,281 @@
       </section>
 
       <!-- Section Divider -->
-      <div class="section-divider-graphic" aria-hidden="true">
-        <span class="divider-node"></span>
-      </div>
+      <div class="timeline-bridge" aria-hidden="true"><div class="bridge-line"></div></div>
 
       <!-- ======================================================== -->
-      <!-- FINAL MESSAGE & CONCLUSION SECTION                       -->
+      <!-- SECTION 7 — KEY CONCEPTS                                 -->
       <!-- ======================================================== -->
-      <section class="final-highlight-section" id="finalMessage" aria-labelledby="finalQuoteHeading">
-        <div class="final-highlight-card">
-          <div class="quote-mark" aria-hidden="true">“</div>
+      <section class="infographic-block" id="concepts" aria-labelledby="heading-concepts">
+        <div class="block-flag">
+          <span class="flag-number">SECTION 07</span>
+          <span class="flag-text">Academic Glossary</span>
+        </div>
 
-          <h2 class="sr-only" id="finalQuoteHeading">Final Takeaway and Conclusion</h2>
+        <h2 class="block-title" id="heading-concepts">KEY CONCEPTS</h2>
+        <p class="block-subtitle">
+          Hover or tap any concept chip below to inspect its concise academic definition:
+        </p>
 
-          <!-- The Core Final Message -->
-          <blockquote class="final-quote-text">
+        <!-- Interactive Concept Grid Chips -->
+        <div class="concept-chips-grid" role="region" aria-label="Interactive concept chips">
+
+          <button type="button" class="concept-chip-btn active" data-concept="digital-literacy" aria-pressed="true">
+            <span class="chip-title">DIGITAL LITERACY</span>
+            <span class="chip-status">Active</span>
+          </button>
+
+          <button type="button" class="concept-chip-btn" data-concept="flexibility" aria-pressed="false">
+            <span class="chip-title">FLEXIBILITY</span>
+            <span class="chip-status">Explore</span>
+          </button>
+
+          <button type="button" class="concept-chip-btn" data-concept="accessibility" aria-pressed="false">
+            <span class="chip-title">ACCESSIBILITY</span>
+            <span class="chip-status">Explore</span>
+          </button>
+
+          <button type="button" class="concept-chip-btn" data-concept="self-discipline" aria-pressed="false">
+            <span class="chip-title">SELF-DISCIPLINE</span>
+            <span class="chip-status">Explore</span>
+          </button>
+
+          <button type="button" class="concept-chip-btn" data-concept="interaction" aria-pressed="false">
+            <span class="chip-title">INTERACTION</span>
+            <span class="chip-status">Explore</span>
+          </button>
+
+          <button type="button" class="concept-chip-btn" data-concept="responsibility" aria-pressed="false">
+            <span class="chip-title">RESPONSIBILITY</span>
+            <span class="chip-status">Explore</span>
+          </button>
+
+          <button type="button" class="concept-chip-btn" data-concept="time-management" aria-pressed="false">
+            <span class="chip-title">TIME MANAGEMENT</span>
+            <span class="chip-status">Explore</span>
+          </button>
+
+          <button type="button" class="concept-chip-btn" data-concept="self-paced-learning" aria-pressed="false">
+            <span class="chip-title">SELF-PACED LEARNING</span>
+            <span class="chip-status">Explore</span>
+          </button>
+
+        </div>
+
+        <!-- Dynamic Concept Inspector Spotlight Card -->
+        <div class="concept-spotlight-card" id="conceptSpotlight" aria-live="polite">
+          <div class="spotlight-header">
+            <div class="spotlight-tag">
+              <span class="spotlight-dot" aria-hidden="true"></span>
+              <span>Glossary Definition</span>
+            </div>
+            <span class="spotlight-term" id="spotlightTerm">DIGITAL LITERACY</span>
+          </div>
+          <p class="spotlight-definition" id="spotlightDefinition">
+            "The ability to use digital technologies effectively, safely and responsibly."
+          </p>
+          <div class="spotlight-footer">
+            <span class="spotlight-instruction">Select any concept above to update this definition</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Divider -->
+      <div class="timeline-bridge" aria-hidden="true"><div class="bridge-line"></div></div>
+
+      <!-- ======================================================== -->
+      <!-- SECTION 8 — DID YOU KNOW?                                -->
+      <!-- ======================================================== -->
+      <section class="infographic-block" id="trivia" aria-labelledby="heading-trivia">
+        <div class="block-flag">
+          <span class="flag-number">SECTION 08</span>
+          <span class="flag-text accent-amber">Educational Facts</span>
+        </div>
+
+        <h2 class="block-title" id="heading-trivia">💡 DID YOU KNOW?</h2>
+        <p class="block-subtitle">
+          Explore evidence-grounded facts about online educational pedagogy. Click next to cycle through cards:
+        </p>
+
+        <!-- Interactive Fact Card -->
+        <div class="fact-card-container">
+          <div class="fact-card" id="factCard">
+            <div class="fact-card-header">
+              <div class="fact-badge">
+                <span class="fact-bulb" aria-hidden="true">💡</span>
+                <span id="factCounter">Fact 1 of 4</span>
+              </div>
+              <div class="fact-progress-dots" id="factDots" aria-hidden="true">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+            </div>
+
+            <blockquote class="fact-content" id="factText">
+              "Online learning can combine synchronous and asynchronous activities to create balanced, hybrid course experiences."
+            </blockquote>
+
+            <div class="fact-nav-controls">
+              <button type="button" class="fact-nav-btn" id="prevFactBtn" aria-label="Previous educational fact">
+                ← Previous Fact
+              </button>
+              <button type="button" class="fact-nav-btn primary-fact-btn" id="nextFactBtn" aria-label="Next educational fact">
+                Next Fact →
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Divider -->
+      <div class="timeline-bridge" aria-hidden="true"><div class="bridge-line"></div></div>
+
+      <!-- ======================================================== -->
+      <!-- SECTION 9 — INTERACTIVE QUICK QUIZ                       -->
+      <!-- ======================================================== -->
+      <section class="infographic-block" id="quiz" aria-labelledby="heading-quiz">
+        <div class="block-flag">
+          <span class="flag-number">SECTION 09</span>
+          <span class="flag-text accent-emerald">Comprehension Check</span>
+        </div>
+
+        <h2 class="block-title" id="heading-quiz">🎯 QUICK QUIZ</h2>
+        <p class="block-subtitle">
+          Test your comprehension of the core concepts covered in this infographic. Select the best answer for each question:
+        </p>
+
+        <!-- Quiz Container -->
+        <div class="quiz-container" id="quizApp">
+
+          <!-- Question 1 -->
+          <div class="quiz-question-box" data-question="1">
+            <div class="q-header">
+              <span class="q-badge">Question 1 of 3</span>
+              <h3 class="q-title">Which learning format happens in real time?</h3>
+            </div>
+            <div class="q-options" role="radiogroup" aria-label="Question 1 options">
+              <button type="button" class="quiz-option-btn" data-option="A">
+                <span class="opt-letter">A</span>
+                <span class="opt-text">Asynchronous</span>
+              </button>
+              <button type="button" class="quiz-option-btn" data-option="B">
+                <span class="opt-letter">B</span>
+                <span class="opt-text">Synchronous</span>
+              </button>
+              <button type="button" class="quiz-option-btn" data-option="C">
+                <span class="opt-letter">C</span>
+                <span class="opt-text">Self-paced</span>
+              </button>
+            </div>
+            <div class="q-feedback" hidden>
+              <p class="feedback-text"></p>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="quiz-question-box" data-question="2">
+            <div class="q-header">
+              <span class="q-badge">Question 2 of 3</span>
+              <h3 class="q-title">Which is a benefit of online classes?</h3>
+            </div>
+            <div class="q-options" role="radiogroup" aria-label="Question 2 options">
+              <button type="button" class="quiz-option-btn" data-option="A">
+                <span class="opt-letter">A</span>
+                <span class="opt-text">Flexible access</span>
+              </button>
+              <button type="button" class="quiz-option-btn" data-option="B">
+                <span class="opt-letter">B</span>
+                <span class="opt-text">No responsibility</span>
+              </button>
+              <button type="button" class="quiz-option-btn" data-option="C">
+                <span class="opt-letter">C</span>
+                <span class="opt-text">No deadlines</span>
+              </button>
+            </div>
+            <div class="q-feedback" hidden>
+              <p class="feedback-text"></p>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="quiz-question-box" data-question="3">
+            <div class="q-header">
+              <span class="q-badge">Question 3 of 3</span>
+              <h3 class="q-title">Which habit can help students succeed online?</h3>
+            </div>
+            <div class="q-options" role="radiogroup" aria-label="Question 3 options">
+              <button type="button" class="quiz-option-btn" data-option="A">
+                <span class="opt-letter">A</span>
+                <span class="opt-text">Ignoring deadlines</span>
+              </button>
+              <button type="button" class="quiz-option-btn" data-option="B">
+                <span class="opt-letter">B</span>
+                <span class="opt-text">Avoiding communication</span>
+              </button>
+              <button type="button" class="quiz-option-btn" data-option="C">
+                <span class="opt-letter">C</span>
+                <span class="opt-text">Creating a study schedule</span>
+              </button>
+            </div>
+            <div class="q-feedback" hidden>
+              <p class="feedback-text"></p>
+            </div>
+          </div>
+
+          <!-- Quiz Results Summary Box -->
+          <div class="quiz-results-card" id="quizResultsCard" hidden>
+            <div class="results-trophy" aria-hidden="true">🏆</div>
+            <h3 class="results-heading" id="resultsGradeTitle">Quiz Complete!</h3>
+            <p class="results-score-display" id="resultsScoreDisplay">Score: 3/3 — Excellent!</p>
+            <p class="results-comment" id="resultsFeedbackText">
+              Outstanding work! You demonstrated comprehensive understanding of online educational principles.
+            </p>
+            <button type="button" class="reset-quiz-btn" id="resetQuizBtn">
+              🔄 Try Again
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section Divider -->
+      <div class="timeline-bridge" aria-hidden="true"><div class="bridge-line"></div></div>
+
+      <!-- ======================================================== -->
+      <!-- SECTION 10 — FINAL MESSAGE & CONCLUSION                  -->
+      <!-- ======================================================== -->
+      <section class="final-conclusion-section" id="conclusion" aria-labelledby="heading-conclusion">
+        <div class="conclusion-card">
+          <div class="quote-symbol" aria-hidden="true">“</div>
+
+          <h2 class="sr-only" id="heading-conclusion">Final Academic Message</h2>
+
+          <blockquote class="conclusion-quote">
             "Online learning can be challenging, but with organization, motivation, and responsibility, it can be a rewarding experience."
           </blockquote>
 
-          <!-- Triad of Core Qualities -->
-          <div class="qualities-triad" aria-label="Key success attributes">
-            <div class="triad-pill">
-              <span class="triad-icon" aria-hidden="true">✓</span>
+          <div class="core-attributes-row" aria-label="Key success attributes">
+            <div class="attribute-pill">
+              <span class="attr-icon" aria-hidden="true">✓</span>
               <span>Organization</span>
             </div>
-            <div class="triad-pill">
-              <span class="triad-icon" aria-hidden="true">★</span>
+            <div class="attribute-pill">
+              <span class="attr-icon" aria-hidden="true">★</span>
               <span>Motivation</span>
             </div>
-            <div class="triad-pill">
-              <span class="triad-icon" aria-hidden="true">🛡</span>
+            <div class="attribute-pill">
+              <span class="attr-icon" aria-hidden="true">🛡</span>
               <span>Responsibility</span>
             </div>
           </div>
 
-          <!-- Prominent Student Signature -->
-          <div class="signature-block">
-            <div class="signature-line" aria-hidden="true"></div>
-            <span class="signature-caption">Author &amp; Presenter</span>
-            <span class="signature-name">REYNALDO JOSÉ DURÁN PERTUZ</span>
+          <div class="student-signature-block">
+            <div class="sig-line" aria-hidden="true"></div>
+            <span class="sig-label">Student Author &amp; Researcher</span>
+            <span class="sig-fullname">REYNALDO JOSÉ DURÁN PERTUZ</span>
+            <span class="sig-closing-message">"Thank you for exploring online learning."</span>
           </div>
         </div>
       </section>
@@ -570,19 +1048,22 @@
     <!-- ======================================================== -->
     <!-- FOOTER SECTION                                           -->
     <!-- ======================================================== -->
-    <footer class="poster-footer" id="footerSection">
+    <footer class="poster-footer" id="footer">
       <div class="footer-meta">
-        <p class="footer-text">
-          Academic English Infographic • Designed for Web &amp; Mobile Viewing
+        <p class="footer-course-title">
+          Academic English Presentation • Interactive Educational Infographic
         </p>
-        <p class="footer-copy">
+        <p class="footer-copyright">
           &copy; <span id="currentYear"></span> <strong>REYNALDO JOSÉ DURÁN PERTUZ</strong>. All educational rights reserved.
+        </p>
+        <p class="footer-academic-citation">
+          Content informed by UNESCO and academic research on online learning.
         </p>
       </div>
 
-      <div class="footer-badge">
-        <span class="host-pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="host-icon" aria-hidden="true">
+      <div class="footer-badge-wrapper">
+        <span class="gh-pages-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pill-svg" aria-hidden="true">
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
             <path d="M2 12h20"></path>
@@ -594,7 +1075,19 @@
 
   </div>
 
-  <!-- Interactive Script -->
+  <!-- Shared Universal Accessible Tooltip Modal / Popover -->
+  <div class="universal-tooltip-overlay" id="universalTooltip" role="dialog" aria-modal="false" aria-live="polite" hidden>
+    <div class="tooltip-bubble" id="tooltipBubble">
+      <div class="tooltip-arrow" aria-hidden="true"></div>
+      <div class="tooltip-header">
+        <span class="tooltip-caption">Academic Insight</span>
+        <button type="button" class="tooltip-close-btn" id="closeTooltipBtn" aria-label="Close insight tooltip">✕</button>
+      </div>
+      <p class="tooltip-message" id="tooltipMessage"></p>
+    </div>
+  </div>
+
+  <!-- Vanilla JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
